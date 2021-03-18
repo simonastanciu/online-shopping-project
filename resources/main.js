@@ -23,7 +23,7 @@ $(function() {
     const overlay = $('.overlay');
     getproductDetailsHTML = function(productDetails) {
         return `<div class="product-item-overlay" data-id=${productDetails.id}>
-                    <div class="product-image" style="background-image=url(assets/coats/${productDetails.imgUrl})"></div>
+                    <div class="product-image" style="background-image:url(assets/coats/${productDetails.imgUrl})"></div>
                     <div class="product-details">
                         <div class="product-title">${productDetails.name}</div>
                         <div class="product-price">${productDetails.currency}${productDetails.price}</div>
