@@ -21,6 +21,7 @@ $(function() {
     //OVERLAY CONTENT//
     const productItemOverlay = $('.product-item-overlay');
     const overlay = $('.overlay');
+    // nu avem nevoie sa creem partea asta de structura la fiecare click. acesta este continut static, poate sa ramana in html, mai apoi cu selectiile de rigoare ne adaugam continutul in modalitate dinamica
     getproductDetailsHTML = function(productDetails) {
         return `<div class="product-item-overlay" data-id=${productDetails.id}>
                     <div class="product-image" style="background-image:url(assets/coats/${productDetails.imgUrl})"></div>
