@@ -28,14 +28,46 @@
 
         <main>
             <div class="menu">
-                <a href="">Coats</a>
-                <a href="">Dresses</a>
-                <a href="">Jersey</a>
-                <a href="">Pants</a>
+                <ul> 
+                    <li><a class="menu-item selected-item" data-product="coats" data-content="coats-content" href="">Coats</a></li>
+                    <li><a class="menu-item" data-product="dresses" data-content="dresses-content" href="">Dresses</a></li>
+                    <li><a class="menu-item" data-product="jersey" data-content="jersey-content" href="">Jersey</a></li>
+                    <li><a class="menu-item" data-product="pants" data-content="pants-content" href="">Pants</a></li>
+                </ul>
             </div>
 
             <section>
-                <div class="product-container"> 
+                <div class="content product-container coats-content"> 
+                    <!-- <div class="product-item" data-id=1>
+                        <div class="main-image"></div>
+                        <div class="main-details">
+                            <div class="product-type">Top Coat</div>
+                            <div class="price">$105</div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="content product-container dresses-content hidden"> 
+                    <!-- <div class="product-item" data-id=1>
+                        <div class="main-image"></div>
+                        <div class="main-details">
+                            <div class="product-type">Top Coat</div>
+                            <div class="price">$105</div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="content product-container jersey-content hidden"> 
+                    <!-- <div class="product-item" data-id=1>
+                        <div class="main-image"></div>
+                        <div class="main-details">
+                            <div class="product-type">Top Coat</div>
+                            <div class="price">$105</div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="content product-container pants-content hidden"> 
                     <!-- <div class="product-item" data-id=1>
                         <div class="main-image"></div>
                         <div class="main-details">
@@ -58,13 +90,13 @@
         </main>
 
         <section class="overlay-container hidden">
-            <div class="closeBtn"> 
-                <i class="fas fa-times"></i>
-            </div>
-
             <div class="overlay-wrapper">
                 <div class="overlay">
-                    <!-- <div class="product-item-overlay" data-id=1>
+                    <div class="closeBtn"> 
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <div class="product-item-overlay" data-id=1>
                         <div class="product-image"></div>
                         <div class="product-details">
                             <div class="product-title">Blazer Coat</div>
@@ -85,22 +117,22 @@
                                 <div class="first-row"> 
                                     <div>
                                         <div>Composition</div>
-                                        <div>100% polyester</div>
+                                        <div class="composition-type">100% polyester</div>
                                     </div>
                                     <div>
                                         <div>Country</div>
-                                        <div>Poland</div>
+                                        <div class="origin-country">Poland</div>
                                     </div>
                                 </div>    
 
                                 <div class="second-row">
                                     <div>Care</div>
-                                    <div>Follow the care label on your coat when you cleaning and treat any stains promptly by blotting.</div>
+                                    <div class="care-instr">Follow the care label on your coat when you cleaning and treat any stains promptly by blotting.</div>
                                 </div>
                             </div>
                             <button class="add-button" type="submit">Add to Cart</button>
                         </div>
-                    </div> -->
+                    </div>
                 </div>    
             </div>
         </section>

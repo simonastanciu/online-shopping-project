@@ -1,9 +1,14 @@
 $(function() {
-    //MAIN PAGE CONTENT//
     const productsContentWrapper = $('.product-container');
-    getproductsHTML = function(productObject) {
+    const menuItem = $('.menu-item');
+    const productItem = $('.product-item');
+    const overlayContainer = $('.overlay-container');
+    const closeBtn = $('.closeBtn');
+    const pageContent = $('.content');
+
+    getproductsHTML = function(index, productObject) {
         return `<div class="product-item" data-id=${productObject.id}>
-                    <div class="main-image" style="background-image: url(assets/coats/${productObject.imgUrl})"></div>
+                    <div class="main-image" data-index=${index} data-img=${productObject.imgUrl} style="background-image: url(assets/coats/${productObject.imgUrl})"></div>
                     <div class="main-details">
                         <div class="product-type">${productObject.name}</div>
                         <div class="price">${productObject.currency}${productObject.price}</div>
@@ -12,72 +17,37 @@ $(function() {
         `;
     };
 
-    for(let x = 0; x < products.coats.length; x++ ) {
-        let productObject = products.coats[x],
-        productHTML = getproductsHTML(productObject);
-        productsContentWrapper.append(productHTML);
-    };
+    function addProducts(shopItems) {
+        for(let x = 0; x < products[shopItems].length; x++ ) {
+            let productObject = products[shopItems][x],
+                productHTML = getproductsHTML(x, productObject);
+                productsContentWrapper.append(productHTML);
+        }
+    }
 
-    //OVERLAY CONTENT//
-    const productItemOverlay = $('.product-item-overlay');
-    const overlay = $('.overlay');
-    getproductDetailsHTML = function(productDetails) {
-        return `<div class="product-item-overlay" data-id=${productDetails.id}>
-                    <div class="product-image" style="background-image=url(assets/coats/${productDetails.imgUrl})"></div>
-                    <div class="product-details">
-                        <div class="product-title">${productDetails.name}</div>
-                        <div class="product-price">${productDetails.currency}${productDetails.price}</div>
-                        <div class="product-size">
-                            <div>Your Size</div>
-                            <span>S</span>
-                            <span>M</span>
-                            <span>L</span>
-                            <span>XL</span>
-                        </div>  
-                        <div class="menu-links">
-                            <a href="">Details</a>
-                            <a href="">Order</a>
-                            <a href="">Payment</a>
-                        </div>
-                        <div class="product-item-details">
-                            <div class="first-row"> 
-                                <div>
-                                    <div>Composition</div>
-                                    <div>${productDetails.composition}</div>
-                                </div>
-                                <div>
-                                    <div>Country</div>
-                                    <div>${productDetails.country}</div>
-                                </div>
-                            </div>    
-                            <div class="second-row">
-                                <div>Care</div>
-                                <div>${productDetails.care}</div>
-                            </div>
-                        </div>
-                        <button class="add-button" type="submit">Add to Cart</button>
-                    </div>
-                </div>
-        `;
-    };
+    addProducts(menuItem.data('product'));
 
-    for(let y = 0; y < products.coats.length; y++ ) {
-        let productDetails = products.coats[y],
-        productDetailsHTML = getproductDetailsHTML(productDetails);
-        overlay.append(productDetailsHTML);
-    };
-
-    //OPEN/CLOSE OVERLAY//
-    const productItem = $('.product-item');
-    const overlayWrapper = $('.overlay-wrapper');
-    const overlayContainer = $('.overlay-container');
-    const closeBtn = $('.closeBtn');
-
-    productItem.click(function(){
-        overlayContainer.removeClass('hidden');
+    productsContentWrapper.delegate('.main-image', "click", function() {
+        let itemIndex = $(this).data('index');
+        let productDetails = products.coats[itemIndex];
+        $('.product-image').css({backgroundImage: "url(assets/coats/" + $(this).data('img') + ")"});
+        $('.product-title').text(productDetails.name);
+        $('.product-price').text(productDetails.currency + productDetails.price);
+        $('.composition-type').text(productDetails.composition);
+        $('.origin-country').text(productDetails.country);
+        $('.care-instr').text(productDetails.care);
+        overlayContainer.show();
     });
 
-    closeBtn.click (function(){
-        overlayContainer.addClass('hidden');
+    closeBtn.click (function() {
+        overlayContainer.hide();
+    });
+
+    menuItem.click(function(e) {
+        (e).preventDefault();
+        pageContent.addClass('hidden');
+        $("." + $(this).data('content')).removeClass('hidden');
+        menuItem.removeClass('selected-item');
+        $(this).addClass('selected-item');
     });
 });
