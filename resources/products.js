@@ -40,5 +40,48 @@ let products = {
             country: "Poland",
             care: "Follow the care label on your coat when you cleaning and treat any stains promptly by blotting."
         }
+    ],
+
+    dresses: [
+        {
+            id: 1,
+            name: "Dress 1",
+            currency: "$",
+            price: "505",
+            imgUrl: "cocktail-dress.jpg",
+            composition: "100% polyester",
+            country: "Belgium",
+            care: "A majority wool blend coats can't be washed safely at home in a machine and need to be taken to a specialized cleaner."
+        },
+        {
+            id: 2,
+            name: "Dress 2",
+            currency: "$",
+            price: "590",
+            imgUrl: "office-dress.jpg",
+            composition: "100% polyester",
+            country: "Italy",
+            care: "Soft and confortable fabric. Don't wash at high temperature and don't iron."
+        },
+        {
+            id: 3,
+            name: "Dress 3",
+            currency: "$",
+            price: "420",
+            imgUrl: "princess-dress.jpg",
+            composition: "100% polyester",
+            country: "Germany",
+            care: "Suitable for both classic and casual style. Consider cleaning to professional cleaners only."
+        },
+        {
+            id: 4,
+            name: "Dress 4",
+            currency: "$",
+            price: "160",
+            imgUrl: "summer-dress.jpg",
+            composition: "100% polyester",
+            country: "Poland",
+            care: "Follow the care label on your coat when you cleaning and treat any stains promptly by blotting."
+        }
     ]
 }
