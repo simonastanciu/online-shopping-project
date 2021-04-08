@@ -1,10 +1,8 @@
 $(function() {
     const productsContentWrapper = $('.product-container');
     const menuItem = $('.menu-item');
-    const productItem = $('.product-item');
     const overlayContainer = $('.overlay-container');
     const closeBtn = $('.closeBtn');
-    const pageContent = $('.content');
 
     getproductsHTML = function(index, productObject) {
         return `<div class="product-item" data-id=${productObject.id}>
@@ -45,8 +43,7 @@ $(function() {
 
     menuItem.click(function(e) {
         (e).preventDefault();
-        pageContent.addClass('hidden');
-        $("." + $(this).data('content')).removeClass('hidden');
+
         menuItem.removeClass('selected-item');
         $(this).addClass('selected-item');
     });
