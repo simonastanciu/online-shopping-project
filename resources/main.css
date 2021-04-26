@@ -177,6 +177,7 @@ h1 {
     color: pink;
     font-size: 60px;
     position: absolute;
+    /* trebuie lucrat putin la pozitionare aici ca sa te asiguri ca merge ok si nu depinde de o dimensiune anume de ecran */
     right: -130px;
     top: -100px;
 }
