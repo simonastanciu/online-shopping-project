@@ -43,8 +43,21 @@ $(function() {
 
     menuItem.click(function(e) {
         (e).preventDefault();
+        let itemSwitch = $(this).data('product');
+        console.log(itemSwitch);
+        let productSwitch = products[itemSwitch];
 
         menuItem.removeClass('selected-item');
         $(this).addClass('selected-item');
     });
+
+    // $('.shoppingCart-button').click(function() {
+    //     $('.shoppingCart-modal').show();
+    // });
+
+    // $('.closeBtn-cart').click (function() {
+    //     $('.shoppingCart-modal').hide();
+    // });
+
+
 });
